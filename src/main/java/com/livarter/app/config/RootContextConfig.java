@@ -47,7 +47,7 @@ public class RootContextConfig {
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
-        sessionFactoryBean.setTypeHandlersPackage("com.livarter.app.config.MyEnumTypeHandler");
+        sessionFactoryBean.setTypeHandlersPackage("com.livarter.app.config.DatabaseEnumTypeHandler");
 
         Resource[] resources = new PathMatchingResourcePatternResolver()
                 .getResources("classpath:mapper/*.xml");

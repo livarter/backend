@@ -7,8 +7,8 @@ import org.apache.ibatis.type.EnumTypeHandler;
  * @fileName : MyEnumTypeHandler
  * @since : 2024-01-19
  */
-public class MyEnumTypeHandler<E extends Enum<E>> extends EnumTypeHandler<E> {
-    public MyEnumTypeHandler(Class<E> type) {
+public class DatabaseEnumTypeHandler<E extends Enum<E>> extends EnumTypeHandler<E> {
+    public DatabaseEnumTypeHandler(Class<E> type) {
         super(type);
     }
 }
