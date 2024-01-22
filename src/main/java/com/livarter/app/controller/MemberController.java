@@ -1,6 +1,7 @@
 package com.livarter.app.controller;
 
 import com.livarter.app.dto.MemberResDto;
+import com.livarter.app.dto.MemberUpdateReqDto;
 import com.livarter.app.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,6 +28,15 @@ public class MemberController {
     public ResponseEntity<MemberResDto> getMember(Authentication authentication) {
         log.debug("회원 정보 조회 : " + authentication.getName());
         MemberResDto memberResDto = memberService.getMember(authentication.getName());
+        return new ResponseEntity<>(memberResDto, HttpStatus.ACCEPTED);
+    }
+
+    @PatchMapping
+    public ResponseEntity<MemberResDto> updateMember(
+            @RequestBody MemberUpdateReqDto memberUpdateReqDto,
+            Authentication authentication) {
+        log.debug("회원 정보 수정 : " + authentication.getName());
+        MemberResDto memberResDto = memberService.updateMember(memberUpdateReqDto);
         return new ResponseEntity<>(memberResDto, HttpStatus.ACCEPTED);
     }
 }
