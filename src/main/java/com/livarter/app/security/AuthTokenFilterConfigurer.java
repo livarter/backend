@@ -1,7 +1,7 @@
 package com.livarter.app.security;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
@@ -15,14 +15,10 @@ import org.springframework.stereotype.Component;
  */
 @Log4j
 @Component
+@RequiredArgsConstructor
 public class AuthTokenFilterConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-    @Autowired
-    private AuthTokenGenerator authTokenGenerator;
-
-    public AuthTokenFilterConfigurer(AuthTokenGenerator authTokenGenerator) {
-        this.authTokenGenerator = authTokenGenerator;
-    }
+    private final AuthTokenGenerator authTokenGenerator;
 
     @Override
     public void configure(HttpSecurity httpSecurity) {

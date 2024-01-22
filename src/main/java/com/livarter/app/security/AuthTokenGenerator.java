@@ -27,13 +27,10 @@ public class AuthTokenGenerator implements InitializingBean {
 
     @Value("${jwt.access-validity}")
     private long accessValidity;
-
     @Value("${jwt.refresh-validity}")
     private long refreshValidity;
-
     @Value("${jwt.secret}")
     private String jwtSecret;
-
     private final AuthDetailsService authDetailsService;
 
     @Override
