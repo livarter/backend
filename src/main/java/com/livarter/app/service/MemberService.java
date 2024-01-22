@@ -2,6 +2,7 @@ package com.livarter.app.service;
 
 import com.livarter.app.domain.Member;
 import com.livarter.app.domain.enumType.Grade;
+import com.livarter.app.domain.enumType.Header;
 import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
 import com.livarter.app.dto.MemberResDto;
@@ -57,7 +58,7 @@ public class MemberService {
         String refreshToken = member.getRefreshToken();
 
         return LoginResDto.builder()
-                .accessToken(newAccessToken)
+                .accessToken(Header.BEARER.getValue() + newAccessToken)
                 .refreshToken(refreshToken)
                 .build();
     }
