@@ -10,7 +10,7 @@
                 price AS price,
                 product_image AS productImage
         FROM   PRODUCT
-        WHERE id<=4
+        WHERE id IN (1,2,3,4)
     </select>
 
 
