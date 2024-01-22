@@ -140,6 +140,7 @@
       <artifactId>commons-codec</artifactId>
       <version>1.16.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
     <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
       <artifactId>ojdbc11</artifactId>
@@ -185,10 +186,11 @@
       <artifactId>commons-fileupload</artifactId>
       <version>1.5</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.10.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -271,6 +273,8 @@
       <artifactId>spring-tx</artifactId>
       <version>3.0.5.RELEASE</version>
     </dependency>
+
+
   </dependencies>
 
   <build>

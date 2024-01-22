@@ -1,6 +1,5 @@
 package com.livarter.app.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -16,6 +15,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] {
+                SecurityConfig.class,
                 RootContextConfig.class,
                 AopConfig.class
         };
@@ -24,7 +24,8 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[] {
-                ServletContextConfig.class
+                ServletContextConfig.class,
+                CorsConfig.class
         };
     }
 
@@ -35,14 +36,11 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[] { characterEncodingFilter() };
-    }
+        CharacterEncodingFilter characterEncodingFilter
+                = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
 
-    @Bean
-    public Filter characterEncodingFilter() {
-        CharacterEncodingFilter filter = new CharacterEncodingFilter();
-        filter.setEncoding("UTF-8");
-        filter.setForceEncoding(true);
-        return filter;
+        return new Filter[] { characterEncodingFilter };
     }
 }
