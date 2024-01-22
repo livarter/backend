@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.ProductMapper">
+
+
+    <select id="getProduct" resultType="com.livarter.app.dto.ProductDto" >
+        SELECT
+                name AS name,
+                price AS price,
+                product_image AS productImage
+        FROM   PRODUCT
+        WHERE id<=4
+    </select>
+
+
+</mapper>
