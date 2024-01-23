@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.MemberMapper">
+
+    <insert id="saveMember" parameterType="com.livarter.app.domain.Member" >
+        INSERT INTO member ( id
+                           , email
+                           , nickname
+                           , role
+                           , grade
+        )
+        VALUES ( member_id_seq.nextval
+               , #{email}
+               , #{nickname}
+               , #{role, typeHandler=com.livarter.app.config.DatabaseEnumTypeHandler}
+               , #{grade, typeHandler=com.livarter.app.config.DatabaseEnumTypeHandler}
+               )
+    </insert>
+
+    <select id="findById" resultType="com.livarter.app.domain.Member" >
+        SELECT   id AS id
+               , email AS email
+               , nickname AS nickname
+               , role AS role
+               , image AS image
+               , refresh_token AS refreshToken
+               , grade AS grade
+               , name AS name
+               , address AS address
+               , zip_code AS zipCode
+               , birth_date AS birthDate
+               , cur_point AS curPoint
+               , total_point AS totalPoint
+               , created_at AS createdAt
+               , updated_at AS updatedAt
+        FROM   MEMBER
+        WHERE  id = #{id}
+    </select>
+
+    <select id="findByEmail" resultType="com.livarter.app.domain.Member" >
+        SELECT id AS id
+             , email AS email
+             , nickname AS nickname
+             , role AS role
+             , image AS image
+             , refresh_token AS refreshToken
+             , grade AS grade
+             , name AS name
+             , address AS address
+             , zip_code AS zipCode
+             , birth_date AS birthDate
+             , cur_point AS curPoint
+             , total_point AS totalPoint
+             , created_at AS createdAt
+             , updated_at AS updatedAt
+        FROM   MEMBER
+        WHERE  email = #{email}
+    </select>
+
+    <update id="updateRefreshToken" parameterType="com.livarter.app.domain.Member">
+        UPDATE MEMBER
+        SET refresh_token = #{refreshToken}
+        WHERE id = #{id}
+    </update>
+
+</mapper>
