@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.ProductMapper">
+
+    <resultMap id="productResultMap" type="com.livarter.app.dto.GetResponseDTO">
+        <result property="productId" column="product_id"/>
+        <result property="productName" column="product_name"/>
+        <result property="productPrice" column="product_price"/>
+        <result property="productDescription" column="product_description"/>
+        <result property="productImage" column="product_image"/>
+        <result property="brandName" column="brand_name"/>
+        <result property="hashtags" column="hashtags"/>
+        <result property="allHashtags" column="all_hashtags"/>
+    </resultMap>
+
+    <select id="getProducts" resultMap="productResultMap">
+        SELECT
+            product_id,
+            product_name,
+            product_price,
+            product_description,
+            product_image,
+            brand_name,
+            hashtags,
+            all_hashtags
+        FROM TABLE(product_pkg.fetch_products(
+                #{requestDTO.category, jdbcType=VARCHAR, mode=IN},
+                #{requestDTO.brand, jdbcType=VARCHAR, mode=IN},
+                #{requestDTO.hashtag, jdbcType=VARCHAR, mode=IN},
+                #{requestDTO.title, jdbcType=VARCHAR, mode=IN},
+                #{requestDTO.sortOption, jdbcType=INTEGER, mode=IN},
+                #{requestDTO.pageSize, jdbcType=INTEGER, mode=IN},
+                #{requestDTO.pageNumber, jdbcType=INTEGER, mode=IN}
+                   ))
+    </select>
+
+</mapper>
