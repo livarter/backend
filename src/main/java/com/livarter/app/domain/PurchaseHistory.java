@@ -2,7 +2,7 @@ package com.livarter.app.domain;
 
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author : 변형준
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class PurchaseHistory {
     private int id;
     private int memberId;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     private String address;
     private String zipcode;
     private String receiverName;

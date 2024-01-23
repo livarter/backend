@@ -1,11 +1,10 @@
 package com.livarter.app.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -14,11 +13,12 @@ import java.util.List;
  * @since : 1/23/24
  */
 @Getter
+@Setter
 @NoArgsConstructor
 public class PurchaseResDto {
     private int memberId;
     private String receiptId;
-    private LocalDate createdAt;
+    private String createdAt;
     private String address;
     private String zipcode;
     private String receiverName;

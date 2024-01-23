@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PurchaseHistoryResDto {
     private int memberId;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     private String address;
     private String zipcode;
     private String receiverName;

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 /**
@@ -29,9 +31,18 @@ public class PurchaseController {
     @PostMapping(value = "/insert")
     public void insertPurchaseHistory(@RequestBody PurchaseResDto purchaseResDto) {
         log.debug("구매내역 저장 : " + purchaseResDto.getReceiptId());
+
+        String datetime = purchaseResDto.getCreatedAt();
+        String[] parts = datetime.split("\\+");
+        String dateWithoutTimezone = parts[0];
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        LocalDateTime createdAt = LocalDateTime.parse(dateWithoutTimezone, formatter);
+
+
         PurchaseHistoryResDto purchaseHistoryResDto = PurchaseHistoryResDto.builder()
                 .memberId(purchaseResDto.getMemberId())
-                .createdAt(purchaseResDto.getCreatedAt())
+                .createdAt(createdAt)
                 .address(purchaseResDto.getAddress())
                 .zipcode(purchaseResDto.getZipcode())
                 .receiverName(purchaseResDto.getReceiverName())
