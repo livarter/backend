@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity web) {
         web.ignoring()
-                .antMatchers("/resources/**", "/", "/api/v1/auth/**", "/api/products/**");
+                .antMatchers("/resources/**", "/", "/api/v1/auth/**", "/api/v1/products/**");
     }
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
