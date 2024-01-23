@@ -6,6 +6,7 @@ import com.livarter.app.domain.enumType.Header;
 import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
 import com.livarter.app.dto.MemberResDto;
+import com.livarter.app.dto.MemberUpdateReqDto;
 import com.livarter.app.mapper.MemberMapper;
 import com.livarter.app.security.AuthTokenGenerator;
 import com.livarter.app.security.KakaoOauthClient;
@@ -83,4 +84,9 @@ public class MemberService {
         return loginResDto;
     }
 
+    public MemberResDto updateMember(MemberUpdateReqDto memberUpdateReqDto) {
+        memberMapper.updateMember(memberUpdateReqDto);
+        Member member = memberMapper.findById(memberUpdateReqDto.getId());
+        return MemberResDto.of(member);
+    }
 }
