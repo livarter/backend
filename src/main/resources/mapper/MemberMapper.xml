@@ -64,4 +64,19 @@
         WHERE id = #{id}
     </update>
 
+    <update id="updateMember" parameterType="com.livarter.app.dto.MemberUpdateReqDto">
+        UPDATE MEMBER
+        <set>
+            <if test="email != null">email=#{email}</if>
+            <if test="nickname != null">, nickname=#{nickname}</if>
+            <if test="image != null">, image=#{image}</if>
+            <if test="name != null">, name=#{name}</if>
+            <if test="address != null">, address=#{address}</if>
+            <if test="zipCode != null">, zip_code=#{zipCode}</if>
+            <if test="birthDate != null">, birth_date=TO_DATE(#{birthDate}, 'YYYY-MM-DD')
+        </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
 </mapper>
