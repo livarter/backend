@@ -13,7 +13,6 @@ import java.util.List;
  * @since : 1/23/24
  */
 @Getter
-@Setter
 @NoArgsConstructor
 public class PurchaseResDto {
     private int memberId;
@@ -27,6 +26,8 @@ public class PurchaseResDto {
     private List<Item> items;
 
 
+    @Getter
+    @NoArgsConstructor
     public static class Item {
         private int id;
         private int qty;

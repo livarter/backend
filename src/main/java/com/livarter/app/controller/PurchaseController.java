@@ -32,26 +32,9 @@ public class PurchaseController {
     public void insertPurchaseHistory(@RequestBody PurchaseResDto purchaseResDto) {
         log.debug("구매내역 저장 : " + purchaseResDto.getReceiptId());
 
-        String datetime = purchaseResDto.getCreatedAt();
-        String[] parts = datetime.split("\\+");
-        String dateWithoutTimezone = parts[0];
+        int result = purchaseHistroryService.savePurchaseHistory(purchaseResDto);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        LocalDateTime createdAt = LocalDateTime.parse(dateWithoutTimezone, formatter);
+        log.debug("주문번호 : " + result + "저장완료");
 
-
-        PurchaseHistoryResDto purchaseHistoryResDto = PurchaseHistoryResDto.builder()
-                .memberId(purchaseResDto.getMemberId())
-                .createdAt(createdAt)
-                .address(purchaseResDto.getAddress())
-                .zipcode(purchaseResDto.getZipcode())
-                .receiverName(purchaseResDto.getReceiverName())
-                .receiverPhone(purchaseResDto.getReceiverPhone())
-                .purchaseDetailStatus(purchaseResDto.getPurchaseDetailStatus())
-                .receiptId(purchaseResDto.getReceiptId())
-                .build();
-        purchaseHistroryService.savePurchaseHistory(purchaseHistoryResDto);
     }
-
-
 }

@@ -15,16 +15,38 @@
                                      , receipt_id
         )
         VALUES ( purchase_history_seq.nextval
-                , #{memberId}
-                , #{createdAt}
-                , #{address}
-                , #{zipcode}
-                , #{receiverName}
-                , #{receiverPhone}
-                , #{purchaseDetailStatus}
-                , #{receiptId}
+               , #{memberId}
+               , #{createdAt}
+               , #{address}
+               , #{zipcode}
+               , #{receiverName}
+               , #{receiverPhone}
+               , #{purchaseDetailStatus}
+               , #{receiptId}
                )
     </insert>
+
+    <insert id="saveHistoryDetail" parameterType="com.livarter.app.domain.HistoryDetail" >
+        INSERT INTO history_detail ( id
+                                    , purchase_history_id
+                                    , product_id
+                                    , member_id
+                                    , product_cnt
+                                    , product_price
+        )
+        VALUES ( history_detail_seq.nextval
+               , #{purchaseHistoryId}
+               , #{productId}
+               , #{memberId}
+               , #{productCnt}
+               , #{productPrice}
+               )
+    </insert>
+
+
+    <select id="findId" resultType="int">
+        SELECT id FROM purchase_history WHERE receipt_id = #{receiptId}
+    </select>
 
     <select id="findByMemberId" resultType="com.livarter.app.domain.PurchaseHistory" >
         SELECT id AS id

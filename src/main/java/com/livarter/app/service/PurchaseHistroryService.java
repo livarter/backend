@@ -9,6 +9,6 @@ import com.livarter.app.dto.PurchaseResDto;
  * @since : 1/23/24
  */
 public interface PurchaseHistroryService {
-    void savePurchaseHistory(PurchaseHistoryResDto purchaseHistoryResDto);
+    int savePurchaseHistory(PurchaseResDto purchaseResDto);
 
 }

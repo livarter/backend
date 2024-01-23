@@ -1,5 +1,6 @@
 package com.livarter.app.mapper;
 
+import com.livarter.app.domain.HistoryDetail;
 import com.livarter.app.domain.PurchaseHistory;
 
 import java.util.List;
@@ -10,7 +11,12 @@ import java.util.List;
  * @since : 2024-01-23
  */
 public interface PurchaseHistoryMapper {
-    void savePurchaseHistory(PurchaseHistory purchaseHistory);
+    int savePurchaseHistory(PurchaseHistory purchaseHistory);
+
+    int findId(String receiptId);
+
+    int saveHistoryDetail(HistoryDetail historyDetail);
+
     List<PurchaseHistory> selectPurchaseHistoryByMemberId(int memberId);
 
 }
