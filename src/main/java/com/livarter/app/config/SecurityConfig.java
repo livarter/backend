@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/api/v1/auth/**").permitAll()
                     .antMatchers("/api/v1/member/**").authenticated()
-                    .antMatchers("/api/products/**").authenticated()
+                    .antMatchers("/api/v1/products/**").authenticated()
                 //.antMatchers("/api/v1/member/**").hasRole("MEMBER") // 이후에 멤버만 허용
                     .anyRequest().permitAll()
                 .and()
