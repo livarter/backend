@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.MemberMapper">
+
+    <insert id="savePurchaseHistory" parameterType="com.livarter.app.domain.PurchaseHistory" >
+        INSERT INTO purchase_history ( id
+                                     , member_id
+                                     , created_at
+                                     , address
+                                     , zipcode
+                                     , receiver_name
+                                     , receiver_phone
+                                     , purchase_detail_status
+                                     , receipt_id
+        )
+        VALUES ( purchase_history_seq.nextval
+                , #{member.id}
+                , #{createdAt}
+                , #{address}
+                , #{zipcode}
+                , #{receiverName}
+                , #{receiverPhone}
+                , #{purchaseDetailStatus}
+                , #{receiptId}
+               )
+    </insert>
+
+    <select id="findByMemberId" resultType="com.livarter.app.domain.PurchaseHistory" >
+        SELECT id AS id
+             , member_id AS memberId
+             , created_at AS createdAt
+             , address AS address
+             , zipcode AS zipcode
+             , receiver_name AS receiverName
+             , receiver_phone AS receiverPhone
+             , purchase_detail_status AS purchaseDetailStatus
+             , receipt_id AS receiptId
+        FROM   purchase_history
+        WHERE  member_id = #{memberId}
+    </select>
+
+</mapper>
