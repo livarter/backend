@@ -2,6 +2,7 @@ package com.livarter.app.mapper;
 
 import com.livarter.app.domain.HistoryDetail;
 import com.livarter.app.domain.PurchaseHistory;
+import com.livarter.app.dto.PurchaseHistoryResDto;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface PurchaseHistoryMapper {
 
     int saveHistoryDetail(HistoryDetail historyDetail);
 
-    List<PurchaseHistory> selectPurchaseHistoryByMemberId(int memberId);
+    List<PurchaseHistoryResDto> findByMemberIdWithDetail(String memberId);
 
 }

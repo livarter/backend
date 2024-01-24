@@ -2,9 +2,6 @@ package com.livarter.app.dto;
 
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -14,7 +11,7 @@ import java.util.List;
  */
 @Getter
 @NoArgsConstructor
-public class PurchaseResDto {
+public class PurchaseReqDto {
     private int memberId;
     private String receiptId;
     private String createdAt;

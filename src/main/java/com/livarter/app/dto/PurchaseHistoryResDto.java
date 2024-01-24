@@ -20,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PurchaseHistoryResDto {
+    private int id;
     private int memberId;
     private LocalDateTime createdAt;
     private String address;
@@ -28,17 +29,11 @@ public class PurchaseHistoryResDto {
     private String receiverPhone;
     private String purchaseDetailStatus;
     private String receiptId;
+    private int historyDetailId;
+    private int productId;
+    private int productCnt;
+    private int productPrice;
+    private String productName;
+    private String productImage;
 
-    public PurchaseHistory toEntity() {
-        return PurchaseHistory.builder()
-                .memberId(memberId)
-                .createdAt(createdAt)
-                .address(address)
-                .zipcode(zipcode)
-                .receiverName(receiverName)
-                .receiverPhone(receiverPhone)
-                .purchaseDetailStatus(purchaseDetailStatus)
-                .receiptId(receiptId)
-                .build();
-    }
 }

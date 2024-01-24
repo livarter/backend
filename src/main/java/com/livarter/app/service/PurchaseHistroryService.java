@@ -1,7 +1,9 @@
 package com.livarter.app.service;
 
 import com.livarter.app.dto.PurchaseHistoryResDto;
-import com.livarter.app.dto.PurchaseResDto;
+import com.livarter.app.dto.PurchaseReqDto;
+
+import java.util.List;
 
 /**
  * @author : 변형준
@@ -9,6 +11,8 @@ import com.livarter.app.dto.PurchaseResDto;
  * @since : 1/23/24
  */
 public interface PurchaseHistroryService {
-    int savePurchaseHistory(PurchaseResDto purchaseResDto);
+    int savePurchaseHistory(PurchaseReqDto purchaseReqDto);
+
+    List<PurchaseHistoryResDto> findByMemberIdWithDetail(String memberId);
 
 }
