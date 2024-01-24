@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.ReplyMapper">
+    <select id="findAllByProductId" resultType="com.livarter.app.dto.ReplyDto">
+        SELECT
+            id AS replyId,
+            product_id AS productId,
+            member_id AS memberId,
+            reply_comment AS replyComment,
+            created_at AS createdAt,
+            updated_at AS updatedAt,
+            isdeleted AS isDeleted
+        FROM reply
+        WHERE product_id = ${productId}
+    </select>
+
+</mapper>
