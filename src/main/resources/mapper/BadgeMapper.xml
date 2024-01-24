@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.BadgeMapper">
+
+    <select id="getBadgesByMember" resultType="com.livarter.app.domain.BadgeMember" >
+        SELECT badge_member.id AS id
+             , badge_member.member_id AS memberId
+             , badge_member.badge_id AS badgeIid
+             , badge_member.is_earned AS isEarned
+             , badge.name AS name
+             , badge.image AS image
+        FROM badge_member
+        JOIN badge
+        ON badge_member.badge_id = badge.id
+        WHERE badge_member.member_id = #{memberId}
+    </select>
+</mapper>
