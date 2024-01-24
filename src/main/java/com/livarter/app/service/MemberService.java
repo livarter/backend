@@ -7,6 +7,7 @@ import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
 import com.livarter.app.dto.MemberResDto;
 import com.livarter.app.dto.MemberUpdateReqDto;
+import com.livarter.app.mapper.BadgeMapper;
 import com.livarter.app.mapper.MemberMapper;
 import com.livarter.app.security.AuthTokenGenerator;
 import com.livarter.app.security.KakaoOauthClient;
@@ -31,6 +32,7 @@ public class MemberService {
     private long accessValidity;
 
     private final MemberMapper memberMapper;
+    private final BadgeMapper badgeMapper;
     private final KakaoOauthClient oAuthClient;
     private final AuthTokenGenerator authTokenGenerator;
 
@@ -73,8 +75,12 @@ public class MemberService {
                 .build();
         memberMapper.saveMember(member);
 
+
         Member savedMember = memberMapper.findByEmail(email);
         int memberId = savedMember.getId();
+        for (int i = 1; i <= 9; i++) {
+            badgeMapper.createBadges(i, memberId);
+        }
 
         LoginResDto loginResDto = authTokenGenerator.createLoginResDto(String.valueOf(memberId));
         savedMember.updateRefreshToken(loginResDto.getRefreshToken());

@@ -6,7 +6,7 @@
     <select id="getBadgesByMember" resultType="com.livarter.app.domain.BadgeMember" >
         SELECT badge_member.id AS id
              , badge_member.member_id AS memberId
-             , badge_member.badge_id AS badgeIid
+             , badge_member.badge_id AS badgeId
              , badge_member.is_earned AS isEarned
              , badge.name AS name
              , badge.image AS image
@@ -15,4 +15,16 @@
         ON badge_member.badge_id = badge.id
         WHERE badge_member.member_id = #{memberId}
     </select>
+
+
+    <insert id="createBadges" >
+        INSERT INTO badge_member ( id
+                                 , badge_id
+                                 , member_id
+                                 , is_earned)
+        VALUES ( badge_member_id_seq.nextval
+               ,  #{badgeId}
+               , #{memberId}
+               , 0)
+    </insert>
 </mapper>
