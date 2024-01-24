@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -45,7 +48,21 @@ public class ProductController {
             @RequestParam(required = false) String title,
             @RequestParam(defaultValue = "1") Integer sortOption,
             @RequestParam(defaultValue = "10") Integer pageSize,
-            @RequestParam(defaultValue = "1") Integer pageNumber) {
+            @RequestParam(defaultValue = "1") Integer pageNumber) throws UnsupportedEncodingException {
+
+        // 인코딩된 문자열 디코딩
+        if (category != null) {
+            category = URLDecoder.decode(category, StandardCharsets.UTF_8.name());
+        }
+        if (brand != null) {
+            brand = URLDecoder.decode(brand, StandardCharsets.UTF_8.name());
+        }
+        if (hashtag != null) {
+            hashtag = URLDecoder.decode(hashtag, StandardCharsets.UTF_8.name());
+        }
+        if (title != null) {
+            title = URLDecoder.decode(title, StandardCharsets.UTF_8.name());
+        }
 
         GetRequestDTO requestDTO = new GetRequestDTO(category, brand, hashtag, title, sortOption, pageSize, pageNumber);
         log.info("getProducts 컨트롤러 시작" + requestDTO);
