@@ -27,4 +27,12 @@
                , #{memberId}
                , 0)
     </insert>
+
+    <update id="earedBadge">
+        UPDATE badge_member
+        SET is_earned = 1
+        WHERE badge_member.member_id = #{memberId}
+        AND badge_member.badge_id = #{badgeId}
+    </update>
+
 </mapper>

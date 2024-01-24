@@ -27,10 +27,9 @@ public class BadgeServiceImpl implements BadgeService {
         return new BadgeMemberListDto(badges);
     }
 
-    // 회원 가입 시 기본 뱃지들 전체 셋팅
-    public void createBadges(String id) {
-        for (int i = 1; i <= 9; i++) {
-            badgeMapper.createBadges(i, Integer.parseInt(id));
-        }
+    @Override
+    public void earedBadge(int badgeId, String memberId) {
+        log.debug("BadgeServiceImpl badgeId : " + badgeId);
+        badgeMapper.earedBadge(badgeId, Integer.parseInt(memberId));
     }
 }

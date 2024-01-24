@@ -16,7 +16,7 @@ import lombok.*;
 public class BadgeMember {
     private int id;
     private int memberId;
-    private int badge_id;
+    private int badgeId;
     private boolean isEarned;
 
     private String name;

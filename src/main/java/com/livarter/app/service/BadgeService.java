@@ -11,5 +11,5 @@ import com.livarter.app.dto.BadgeMemberListDto;
 public interface BadgeService {
     BadgeMemberListDto getBadgesByMember(String id);
 
-    void createBadges(String id);
+    void earedBadge(int badgeId, String memberId);
 }
