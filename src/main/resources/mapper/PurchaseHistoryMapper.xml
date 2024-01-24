@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.PurchaseHistoryMapper">
+
+<!--
+ @author : 변형준
+ @fileName : PurchaseHistoryMapper.xml
+ @since : 1/23/24
+  -->
+
+    <insert id="savePurchaseHistory" parameterType="com.livarter.app.domain.PurchaseHistory" >
+        INSERT INTO purchase_history ( id
+                                     , member_id
+                                     , created_at
+                                     , address
+                                     , zipcode
+                                     , receiver_name
+                                     , receiver_phone
+                                     , purchase_detail_status
+                                     , receipt_id
+        )
+        VALUES ( purchase_history_seq.nextval
+               , #{memberId}
+               , #{createdAt}
+               , #{address}
+               , #{zipcode}
+               , #{receiverName}
+               , #{receiverPhone}
+               , #{purchaseDetailStatus}
+               , #{receiptId}
+               )
+    </insert>
+
+    <insert id="saveHistoryDetail" parameterType="com.livarter.app.domain.HistoryDetail" >
+        INSERT INTO history_detail ( id
+                                    , purchase_history_id
+                                    , product_id
+                                    , member_id
+                                    , product_cnt
+                                    , product_price
+        )
+        VALUES ( history_detail_seq.nextval
+               , #{purchaseHistoryId}
+               , #{productId}
+               , #{memberId}
+               , #{productCnt}
+               , #{productPrice}
+               )
+    </insert>
+
+
+    <select id="findId" resultType="int">
+        SELECT id FROM purchase_history WHERE receipt_id = #{receiptId}
+    </select>
+
+
+    <select id="findByMemberIdWithDetail" resultType="com.livarter.app.dto.PurchaseHistoryResDto" >
+        SELECT ph.id AS id
+             , ph.member_id AS memberId
+             , ph.created_at AS createdAt
+             , ph.address AS address
+             , ph.zipcode AS zipcode
+             , ph.receiver_name AS receiverName
+             , ph.receiver_phone AS receiverPhone
+             , ph.purchase_detail_status AS purchaseDetailStatus
+             , ph.receipt_id AS receiptId
+             , hd.id AS historyDetailId
+             , hd.product_id AS productId
+             , hd.product_cnt AS productCnt
+             , hd.product_price AS productPrice
+             , p.name AS productName
+             , p.product_image AS productImage
+        FROM   purchase_history ph
+        JOIN history_detail hd
+        ON     ph.id = hd.purchase_history_id
+        JOIN product p
+        ON     hd.product_id = p.id
+        WHERE  ph.member_id = #{memberId}
+        AND    ph.id = hd.purchase_history_id
+    </select>
+
+</mapper>
