@@ -5,6 +5,7 @@ import com.livarter.app.domain.enumType.Grade;
 import com.livarter.app.domain.enumType.Header;
 import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
+import com.livarter.app.dto.MemberGradeDto;
 import com.livarter.app.dto.MemberResDto;
 import com.livarter.app.dto.MemberUpdateReqDto;
 import com.livarter.app.mapper.BadgeMapper;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author : 황수영
@@ -51,9 +53,9 @@ public class MemberService {
         return joinByEmail(email);
     }
 
-    private String updateAccessToken(Member member) {
-        String memberId = String.valueOf(member.getId());
-        return authTokenGenerator.createJwtToken(memberId, accessValidity);
+        private String updateAccessToken(Member member) {
+            String memberId = String.valueOf(member.getId());
+            return authTokenGenerator.createJwtToken(memberId, accessValidity);
     }
 
     private LoginResDto getUpdatedToken(Member member) {
@@ -94,5 +96,33 @@ public class MemberService {
         memberMapper.updateMember(memberUpdateReqDto);
         Member member = memberMapper.findById(memberUpdateReqDto.getId());
         return MemberResDto.of(member);
+    }
+
+    // 멤버십 조회하기
+    public MemberGradeDto getMemberGradeInfo(String id) {
+        MemberGradeDto memberGradeDto = memberMapper.getMemberGradeInfo(Integer.parseInt(id));
+        log.debug("멤버십 조회하기 서바스단 memberGradeDto : " + memberGradeDto);
+        return memberGradeDto;
+    }
+
+    // 포인트 적립
+    public void increasePoint(int money, String id) {
+        // 멤버 grade에 따라서 포인트 다르게 적립됨
+
+        // grade 찾기
+        MemberGradeDto memberGradeDto = memberMapper.getMemberGradeInfo(Integer.parseInt(id));
+        String gradeType = memberGradeDto.getName();
+        log.debug("increasePoint ROLE : " + gradeType);
+        Grade grade = Grade.valueOf(gradeType);
+        int point = grade.getPointOfMoneyByGrade(money);
+        log.debug("increasePoint money : " + money + " => point : " + point);
+        memberMapper.increasePoint(point, Integer.parseInt(id));
+    }
+
+    // 포인트 사용
+    public void decreasePoint(int point, String id) {
+        // 그냥 해당 값을 차감
+        log.debug("decreasePoint point : " + point);
+        memberMapper.decreasePoint(point, Integer.parseInt(id));
     }
 }
