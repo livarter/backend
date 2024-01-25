@@ -19,4 +19,10 @@ public enum Grade {
     private final int discountRate; // 할인 비율
     private final int savingRate;   // 포인트 적립 비율
     private final int minPoint;     // 해당 등급으로 올라가는 최저 포인트
+
+    // 적립 포인트
+    public int getPointOfMoneyByGrade(int money) {
+        int point = (int) (money * (0.01 * savingRate));
+        return point;
+    }
 }
