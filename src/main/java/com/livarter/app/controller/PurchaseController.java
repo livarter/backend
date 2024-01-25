@@ -1,6 +1,6 @@
 package com.livarter.app.controller;
 
-import com.livarter.app.dto.MemberResDto;
+
 import com.livarter.app.dto.PurchaseHistoryResDto;
 import com.livarter.app.dto.PurchaseReqDto;
 import com.livarter.app.service.PurchaseHistroryService;
