@@ -1,9 +1,6 @@
 package com.livarter.app.service;
 
-import com.livarter.app.dto.GetRequestDTO;
-import com.livarter.app.dto.GetResponseDTO;
-import com.livarter.app.dto.ReplyDto;
-import com.livarter.app.mapper.ProductMapper;
+import com.livarter.app.dto.GetReplyDto;
 import com.livarter.app.mapper.ReplyMapper;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +25,7 @@ public class ReplyServiceImpl implements ReplyService {
         this.replyMapper = replyMapper;
     }
     @Override
-    public List<ReplyDto> findAllByProductId(String productId) {
+    public List<GetReplyDto> findAllByProductId(String productId) {
 
         log.info("ReplyServiceImpl findAllByProductId : " + productId);
         return replyMapper.findAllByProductId(productId);

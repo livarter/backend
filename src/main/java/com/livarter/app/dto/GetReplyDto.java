@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
-public class ReplyDto {
+public class GetReplyDto {
     private Long replyId;
     private Long productId;
+    private String nickname;
     private Long memberId;
     private String replyComment;
     private LocalDateTime createdAt;

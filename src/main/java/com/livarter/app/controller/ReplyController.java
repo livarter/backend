@@ -1,9 +1,6 @@
 package com.livarter.app.controller;
 
-import com.livarter.app.dto.PurchaseHistoryResDto;
-import com.livarter.app.dto.PurchaseReqDto;
-import com.livarter.app.dto.ReplyDto;
-import com.livarter.app.service.PurchaseHistroryService;
+import com.livarter.app.dto.GetReplyDto;
 import com.livarter.app.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,11 +24,10 @@ public class ReplyController {
 
     private final ReplyService replyService;
 
-    @GetMapping(value = "/{productId}")
-    public ResponseEntity<List<ReplyDto>> getPurchaseHistory(@PathVariable String productId) {
-        log.debug("댓글내역 조회 : " + productId);
-
-        List<ReplyDto> list = replyService.findAllByProductId(productId);
+    @GetMapping
+    public ResponseEntity<List<GetReplyDto>> findAllByProductId(@RequestParam String productId) {
+        log.debug("댓글 조회 : " + productId);
+        List<GetReplyDto> list = replyService.findAllByProductId(productId);
         return new ResponseEntity<> (list, HttpStatus.ACCEPTED);
     }
 }

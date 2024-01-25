@@ -1,6 +1,6 @@
 package com.livarter.app.mapper;
 
-import com.livarter.app.dto.ReplyDto;
+import com.livarter.app.dto.GetReplyDto;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
@@ -11,5 +11,5 @@ import java.util.List;
  */
 @Mapper
 public interface ReplyMapper {
-    List<ReplyDto> findAllByProductId(String productId);
+    List<GetReplyDto> findAllByProductId(String productId);
 }
