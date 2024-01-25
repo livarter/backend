@@ -22,7 +22,8 @@ import java.time.LocalDateTime;
 public class PurchaseHistoryResDto {
     private int id;
     private int memberId;
-    private LocalDateTime createdAt;
+    private String createdAt;
+    private String createdAtTime;
     private String address;
     private String zipcode;
     private String receiverName;
