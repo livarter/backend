@@ -79,4 +79,27 @@
         WHERE id = #{id}
     </update>
 
+    <select id="getMemberGradeInfo">
+        SELECT
+            member.cur_point AS curPoint,
+            member.total_point AS totalPoint,
+            membership.name AS name,
+            membership.image AS image
+        FROM member
+        JOIN membership
+        ON member.grade = membership.name
+        WHERE member.id = #{memberId}
+    </select>
+
+    <update id="increasePoint">
+        UPDATE member
+        SET cur_point = cur_point + #{point}
+        WHERE id = #{memberId}
+    </update>
+
+    <update id="decreasePoint">
+        UPDATE member
+        SET cur_point = cur_point - #{point}
+        WHERE id = #{memberId}
+    </update>
 </mapper>
