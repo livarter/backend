@@ -35,8 +35,8 @@ public class PurchaseController {
         return new ResponseEntity<> ("success", HttpStatus.ACCEPTED);
     }
 
-    @GetMapping(value = "/{memberId}")
-    public ResponseEntity<List<PurchaseHistoryResDto>> getPurchaseHistory(@PathVariable String memberId) {
+    @GetMapping
+    public ResponseEntity<List<PurchaseHistoryResDto>> getPurchaseHistory(@RequestParam String memberId) {
         log.debug("구매내역 조회 : " + memberId);
 
         List<PurchaseHistoryResDto> list = purchaseHistroryService.findByMemberIdWithDetail(memberId);
