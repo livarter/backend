@@ -1,5 +1,7 @@
 package com.livarter.app.service;
 
+import com.livarter.app.domain.PurchaseHistory;
+import com.livarter.app.domain.Reply;
 import com.livarter.app.dto.GetReplyDto;
 import com.livarter.app.mapper.ReplyMapper;
 import lombok.extern.log4j.Log4j;
@@ -31,4 +33,13 @@ public class ReplyServiceImpl implements ReplyService {
         return replyMapper.findAllByProductId(productId);
     }
 
+    @Override
+    public int saveReply(Long memberId, Long productId, String replyComment) {
+        Reply reply = Reply.builder()
+                .memberId(memberId)
+                .productId(productId)
+                .replyComment(replyComment)
+                .build();
+        return replyMapper.saveReply(reply);
+    }
 }

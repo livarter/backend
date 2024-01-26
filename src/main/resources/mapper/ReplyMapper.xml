@@ -18,4 +18,17 @@
         WHERE product_id = ${productId}
     </select>
 
+    <insert id="saveReply" parameterType="com.livarter.app.domain.Reply" >
+        INSERT INTO reply ( id
+                                     , product_id
+                                     , member_id
+                                     , reply_comment
+        )
+        VALUES ( reply_seq.nextval
+               , #{productId}
+               , #{memberId}
+               , #{replyComment}
+               )
+    </insert>
+
 </mapper>

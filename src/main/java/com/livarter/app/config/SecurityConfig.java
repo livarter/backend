@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity web) {
         web.ignoring()
-                .antMatchers("/resources/**", "/", "/api/v1/auth/**", "/api/v1/products/**", "/api/v1/purchase/**", "/api/v1/reply/**");
+                .antMatchers("/resources/**", "/", "/api/v1/auth/**", "/api/v1/products/**", "/api/v1/purchase/**");
     }
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/api/v1/auth/**").permitAll()
                     .antMatchers("/api/v1/member/**").authenticated()
-                    .antMatchers("/api/v1/products/**").authenticated()
-                    .antMatchers("/api/v1/purchase/**").authenticated()
+                    .antMatchers("/api/v1/products/**").permitAll()
+                    .antMatchers("/api/v1/purchase/**").permitAll()
                     .antMatchers("/api/v1/reply/**").permitAll()
                 //.antMatchers("/api/v1/member/**").hasRole("MEMBER") // 이후에 멤버만 허용
                     .anyRequest().permitAll()
