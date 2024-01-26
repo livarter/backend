@@ -32,4 +32,17 @@
                )
     </insert>
 
+
+    <insert id="findAllByMemberId" >
+        SELECT reply.id
+             , reply.product_id
+             , reply.member_id
+             , reply.reply_comment
+             , reply.created_at
+             , reply.updated_at
+             , reply.isdeleted
+        FROM reply, member
+        WHERE reply.member_id = member.id
+    </insert>
+
 </mapper>
