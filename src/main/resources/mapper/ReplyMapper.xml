@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.livarter.app.mapper.ReplyMapper">
+    <select id="findAllByProductId" resultType="com.livarter.app.dto.GetReplyDto">
+        SELECT
+            id AS replyId,
+            product_id AS productId,
+            member_id AS memberId,
+            (SELECT nickname
+             FROM member M
+             WHERE M.id = member_id) AS nickname,
+            reply_comment AS replyComment,
+            created_at AS createdAt,
+            updated_at AS updatedAt,
+            isdeleted AS isDeleted
+        FROM reply
+        WHERE product_id = ${productId}
+        ORDER BY createdAt DESC
+    </select>
+
+    <insert id="saveReply" parameterType="com.livarter.app.domain.Reply" >
+        INSERT INTO reply ( id
+                                     , product_id
+                                     , member_id
+                                     , reply_comment
+        )
+        VALUES ( reply_seq.nextval
+               , #{productId}
+               , #{memberId}
+               , #{replyComment}
+               )
+    </insert>
+
+</mapper>
