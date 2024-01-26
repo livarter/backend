@@ -11,8 +11,8 @@ import java.util.List;
  * @since : 1/23/24
  */
 public interface PurchaseHistroryService {
-    int savePurchaseHistory(PurchaseReqDto purchaseReqDto);
+    int savePurchaseHistory(PurchaseReqDto purchaseReqDto, String memberId);
 
-    List<PurchaseHistoryResDto> findByMemberIdWithDetail(String memberId);
+    List<PurchaseHistoryResDto> findByMemberIdWithDetail(int memberId);
 
 }

@@ -18,6 +18,6 @@ public interface PurchaseHistoryMapper {
 
     int saveHistoryDetail(HistoryDetail historyDetail);
 
-    List<PurchaseHistoryResDto> findByMemberIdWithDetail(String memberId);
+    List<PurchaseHistoryResDto> findByMemberIdWithDetail(int memberId);
 
 }

@@ -58,7 +58,8 @@
     <select id="findByMemberIdWithDetail" resultType="com.livarter.app.dto.PurchaseHistoryResDto" >
         SELECT ph.id AS id
              , ph.member_id AS memberId
-             , ph.created_at AS createdAt
+             , TO_CHAR(ph.created_at, 'YYYY-MM-DD') AS createdAt
+             , ph.created_at AS createdAtTime
              , ph.address AS address
              , ph.zipcode AS zipcode
              , ph.receiver_name AS receiverName
@@ -78,6 +79,7 @@
         ON     hd.product_id = p.id
         WHERE  ph.member_id = #{memberId}
         AND    ph.id = hd.purchase_history_id
+        ORDER BY ph.created_at DESC
     </select>
 
 </mapper>

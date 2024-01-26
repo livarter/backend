@@ -27,18 +27,18 @@ public class PurchaseHistoryServiceImpl implements PurchaseHistroryService {
     private PurchaseHistoryMapper purchaseHistoryMapper;
 
     @Transactional
-    public int savePurchaseHistory(PurchaseReqDto purchaseReqDto) {
+    public int savePurchaseHistory(PurchaseReqDto purchaseReqDto, String authId) {
 
         String datetime = purchaseReqDto.getCreatedAt();
         String[] parts = datetime.split("\\+");
         String dateWithoutTimezone = parts[0];
-
+        int memberId = Integer.parseInt(authId);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         LocalDateTime createdAt = LocalDateTime.parse(dateWithoutTimezone, formatter);
 
         PurchaseHistory purchaseHistory = PurchaseHistory.builder()
                 .id(1)
-                .memberId(purchaseReqDto.getMemberId())
+                .memberId(memberId)
                 .createdAt(createdAt)
                 .address(purchaseReqDto.getAddress())
                 .zipcode(purchaseReqDto.getZipcode())
@@ -57,7 +57,7 @@ public class PurchaseHistoryServiceImpl implements PurchaseHistroryService {
             historyDetail = HistoryDetail.builder()
                     .purchaseHistoryId(purchaseHistoryId)
                     .productId(purchaseReqDto.getItems().get(i).getId())
-                    .memberId(purchaseReqDto.getMemberId())
+                    .memberId(memberId)
                     .productCnt(purchaseReqDto.getItems().get(i).getQty())
                     .productPrice(purchaseReqDto.getItems().get(i).getPrice())
                     .build();
@@ -68,7 +68,7 @@ public class PurchaseHistoryServiceImpl implements PurchaseHistroryService {
     }
 
     @Override
-    public List<PurchaseHistoryResDto> findByMemberIdWithDetail(String memberId) {
+    public List<PurchaseHistoryResDto> findByMemberIdWithDetail(int memberId) {
 
         return purchaseHistoryMapper.findByMemberIdWithDetail(memberId);
     }
