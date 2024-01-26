@@ -17,7 +17,7 @@ public class BadgeMember {
     private int id;
     private int memberId;
     private int badgeId;
-    private boolean isEarned;
+    private Boolean isEarned;
 
     private String name;
     private String image;
