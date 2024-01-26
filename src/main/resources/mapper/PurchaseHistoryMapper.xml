@@ -79,6 +79,7 @@
         ON     hd.product_id = p.id
         WHERE  ph.member_id = #{memberId}
         AND    ph.id = hd.purchase_history_id
+        ORDER BY ph.created_at DESC
     </select>
 
 </mapper>

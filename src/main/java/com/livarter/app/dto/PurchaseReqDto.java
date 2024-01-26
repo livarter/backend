@@ -9,8 +9,10 @@ import java.util.List;
  * @fileName : PurchaseResDto
  * @since : 1/23/24
  */
+@Builder
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class PurchaseReqDto {
     private int memberId;
     private String receiptId;
