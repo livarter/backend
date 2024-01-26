@@ -4,12 +4,10 @@
 <mapper namespace="com.livarter.app.mapper.BadgeMapper">
 
     <select id="getBadgesByMember" resultType="com.livarter.app.domain.BadgeMember" >
-        SELECT badge_member.id AS id
-             , badge_member.member_id AS memberId
-             , badge_member.badge_id AS badgeId
-             , badge_member.is_earned AS isEarned
+        SELECT badge_member.is_earned AS isEarned
              , badge.name AS name
              , badge.image AS image
+             , badge.description AS description
         FROM badge_member
         JOIN badge
         ON badge_member.badge_id = badge.id
