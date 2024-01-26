@@ -16,6 +16,7 @@
             isdeleted AS isDeleted
         FROM reply
         WHERE product_id = ${productId}
+        ORDER BY createdAt DESC
     </select>
 
     <insert id="saveReply" parameterType="com.livarter.app.domain.Reply" >
