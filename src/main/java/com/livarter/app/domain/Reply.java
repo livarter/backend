@@ -23,4 +23,5 @@ public class Reply {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private int isDeleted;
+    private String replyImg;
 }

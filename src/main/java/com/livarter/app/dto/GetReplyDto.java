@@ -22,4 +22,5 @@ public class GetReplyDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private int isDeleted;
+    private String replyImg;
 }

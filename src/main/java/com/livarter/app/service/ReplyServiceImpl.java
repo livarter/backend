@@ -34,11 +34,12 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public int saveReply(Long memberId, Long productId, String replyComment) {
+    public int saveReply(Long memberId, Long productId, String replyComment, String replyImg) {
         Reply reply = Reply.builder()
                 .memberId(memberId)
                 .productId(productId)
                 .replyComment(replyComment)
+                .replyImg(replyImg) // 이미지 파일 이름 추가
                 .build();
         return replyMapper.saveReply(reply);
     }
