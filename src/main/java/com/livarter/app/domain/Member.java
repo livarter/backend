@@ -21,6 +21,7 @@ public class Member {
     private int id;
     private String email;
     private String nickname;
+    private String phone;
     private Role role;
 
     private String image;

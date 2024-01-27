@@ -20,6 +20,7 @@
 
     <select id="findById" resultType="com.livarter.app.domain.Member" >
         SELECT   id AS id
+               , phone AS phone
                , email AS email
                , nickname AS nickname
                , role AS role
@@ -40,6 +41,7 @@
 
     <select id="findByEmail" resultType="com.livarter.app.domain.Member" >
         SELECT id AS id
+             , phone AS phone
              , email AS email
              , nickname AS nickname
              , role AS role
@@ -68,11 +70,12 @@
         UPDATE MEMBER
         <set>
             <if test="nickname != null">nickname=#{nickname}</if>
+            <if test="phone != null">, phone=#{phone}</if>
             <if test="image != null">, image=#{image}</if>
             <if test="name != null">, name=#{name}</if>
             <if test="address != null">, address=#{address}</if>
             <if test="zipCode != null">, zip_code=#{zipCode}</if>
-            <if test="birthDate != null">, birth_date=TO_DATE(#{birthDate}, 'YYYY-MM-DD')</if>
+            <if test="birthDate != null">, birth_date=TO_DATE(#{birthDate}, 'YY/MM/DD')</if>
         </set>
         WHERE id = #{id}
     </update>
