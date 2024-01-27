@@ -12,6 +12,7 @@
         JOIN badge
         ON badge_member.badge_id = badge.id
         WHERE badge_member.member_id = #{memberId}
+        ORDER BY badge.id
     </select>
 
 
