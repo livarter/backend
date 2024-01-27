@@ -14,6 +14,7 @@ import java.util.List;
 @Mapper
 public interface ReplyMapper {
     List<GetReplyDto> findAllByProductId(String productId);
-    List<Reply> findAllByMemberId(int memberId);
     int saveReply(Reply reply);
+
+    List<Reply> findAllByMemberId(int memberId);
 }

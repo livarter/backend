@@ -33,4 +33,13 @@
         AND badge_member.badge_id = #{badgeId}
     </update>
 
+    <select id="getBadge" resultType="com.livarter.app.domain.Badge" >
+        SELECT id AS id
+             , name AS name
+             , image AS image
+             , description AS description
+        FROM badge
+        WHERE badge.id = #{badgeId}
+    </select>
+
 </mapper>
