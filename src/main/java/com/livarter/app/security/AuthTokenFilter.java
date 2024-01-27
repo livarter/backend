@@ -31,7 +31,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         try {
+            log.debug("AuthTokenFilter : request" + request);
             String accessToken = resolveToken(request);
+            log.debug("AuthTokenFilter : accessToken" + accessToken);
             authTokenGenerator.isTokenValidate(accessToken);
             Authentication authentication = authTokenGenerator.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
