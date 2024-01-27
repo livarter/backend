@@ -9,26 +9,32 @@
             member_id AS memberId,
             (SELECT nickname
              FROM member M
-             WHERE M.id = member_id) AS nickname,
+             WHERE M.id = R.member_id) AS nickname,
             reply_comment AS replyComment,
             created_at AS createdAt,
             updated_at AS updatedAt,
-            isdeleted AS isDeleted
-        FROM reply
-        WHERE product_id = ${productId}
+            isdeleted AS isDeleted,
+            reply_img AS replyImg -- 추가된 부분
+        FROM reply R
+        WHERE product_id = #{productId}
+        AND ISDELETED = 1
         ORDER BY createdAt DESC
     </select>
 
-    <insert id="saveReply" parameterType="com.livarter.app.domain.Reply" >
-        INSERT INTO reply ( id
-                                     , product_id
-                                     , member_id
-                                     , reply_comment
+    <insert id="saveReply" parameterType="com.livarter.app.domain.Reply">
+        INSERT INTO reply (
+            id,
+            product_id,
+            member_id,
+            reply_comment,
+            reply_img
         )
-        VALUES ( reply_seq.nextval
-               , #{productId}
-               , #{memberId}
-               , #{replyComment}
+        VALUES (
+                   reply_seq.nextval,
+                   #{productId},
+                   #{memberId},
+                   #{replyComment},
+                   #{replyImg, jdbcType=CLOB}
                )
     </insert>
 
