@@ -39,7 +39,7 @@ public class MemberController {
             @RequestBody MemberUpdateReqDto memberUpdateReqDto,
             Authentication authentication) {
         log.debug("회원 정보 수정 : " + authentication.getName());
-        MemberResDto memberResDto = memberService.updateMember(memberUpdateReqDto);
+        MemberResDto memberResDto = memberService.updateMember(authentication.getName(), memberUpdateReqDto);
         return new ResponseEntity<>(memberResDto, HttpStatus.ACCEPTED);
     }
 

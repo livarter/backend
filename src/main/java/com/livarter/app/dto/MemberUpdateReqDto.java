@@ -3,6 +3,7 @@ package com.livarter.app.dto;
 import com.livarter.app.domain.enumType.Grade;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author : 황수영
@@ -11,16 +12,13 @@ import lombok.NoArgsConstructor;
  */
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class MemberUpdateReqDto {
-
     private int id;
-    private String email;
-    private String nickname;
     private String image;
-    private Grade grade;
-
     private String name;
+    private String nickname;
     private String address;
     private String zipCode;
     private String birthDate;

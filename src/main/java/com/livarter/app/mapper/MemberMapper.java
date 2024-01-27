@@ -10,7 +10,7 @@ public interface MemberMapper {
     Member findById(int id);
     Member findByEmail(String email);
     void updateRefreshToken(Member member);
-    void updateMember(MemberUpdateReqDto memberUpdateReqDto);
+    void updateMember(@Param("reqDto") MemberUpdateReqDto reqDto);
     MemberGradeDto getMemberGradeInfo(int memberId);
     void increasePoint(@Param("point") int point, @Param("memberId") int memberId);
     void decreasePoint(@Param("point") int point, @Param("memberId") int memberId);

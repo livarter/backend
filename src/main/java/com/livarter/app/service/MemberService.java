@@ -5,10 +5,9 @@ import com.livarter.app.domain.enumType.Grade;
 import com.livarter.app.domain.enumType.Header;
 import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
-import com.livarter.app.dto.MemberGradeDto;
-import com.livarter.app.dto.MemberResDto;
-import com.livarter.app.dto.MemberUpdateReqDto;
+import com.livarter.app.dto.*;
 import com.livarter.app.mapper.BadgeMapper;
+import com.livarter.app.mapper.CouponMapper;
 import com.livarter.app.mapper.MemberMapper;
 import com.livarter.app.security.AuthTokenGenerator;
 import com.livarter.app.security.KakaoOauthClient;
@@ -18,7 +17,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @author : 황수영
@@ -35,6 +35,7 @@ public class MemberService {
 
     private final MemberMapper memberMapper;
     private final BadgeMapper badgeMapper;
+    private final CouponMapper couponMapper;
     private final KakaoOauthClient oAuthClient;
     private final AuthTokenGenerator authTokenGenerator;
 
@@ -92,9 +93,11 @@ public class MemberService {
         return loginResDto;
     }
 
-    public MemberResDto updateMember(MemberUpdateReqDto memberUpdateReqDto) {
+    public MemberResDto updateMember(String id, MemberUpdateReqDto memberUpdateReqDto) {
+        int memberId = Integer.parseInt(id);
+        memberUpdateReqDto.setId(memberId);
         memberMapper.updateMember(memberUpdateReqDto);
-        Member member = memberMapper.findById(memberUpdateReqDto.getId());
+        Member member = memberMapper.findById(memberId);
         return MemberResDto.of(member);
     }
 
