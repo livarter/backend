@@ -102,4 +102,11 @@
         SET cur_point = cur_point - #{point}
         WHERE id = #{memberId}
     </update>
+
+    <select id="countPurchaseHistoryByMemberId">
+        SELECT COUNT(purchase_history_id)
+        FROM member, history_detail
+        WHERE member.id = history_detail.member_id
+          AND member.id = #{memberId}
+    </select>
 </mapper>

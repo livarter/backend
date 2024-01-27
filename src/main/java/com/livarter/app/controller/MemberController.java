@@ -51,7 +51,7 @@ public class MemberController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping ("/grade")
+    @GetMapping ("/grade")
     public ResponseEntity<MemberGradeDto> getMembership(Authentication authentication) {
         log.debug("멤버십 조회하기 : " + authentication.getName());
         MemberGradeDto memberGradeDto = memberService.getMemberGradeInfo(authentication.getName());

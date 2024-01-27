@@ -14,11 +14,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BadgeMember {
-    private int id;
-    private int memberId;
-    private int badgeId;
-    private Boolean isEarned;
-
+    private boolean isEarned;
     private String name;
     private String image;
+    private String description;
 }
