@@ -1,5 +1,6 @@
 package com.livarter.app.mapper;
 
+import com.livarter.app.domain.Badge;
 import com.livarter.app.domain.BadgeMember;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,4 +18,5 @@ public interface BadgeMapper {
     // 회원 가입 시 뱃지 전체 부여
     void createBadges(@Param("badgeId") int badgeId, @Param("memberId") int memberId);
     void earedBadge(@Param("badgeId") int badgeId, @Param("memberId") int memberId);
+    Badge getBadge(@Param("badgeId") int badgeId);
 }

@@ -38,4 +38,17 @@
                )
     </insert>
 
+    <select id="findAllByMemberId" >
+        SELECT reply.id AS replyId
+             , reply.product_id AS productId
+             , reply.member_id AS memberId
+             , reply.reply_comment AS replyComment
+             , reply.created_at AS createdAt
+             , reply.updated_at AS updatedAt
+             , reply.isdeleted AS isDeleted
+        FROM reply, member
+        WHERE reply.member_id = member.id
+          AND member.id = #{memberId}
+    </select>
+
 </mapper>
