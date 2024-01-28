@@ -65,13 +65,13 @@ public class MemberController {
 
     // 포인트 적립
     @PatchMapping("/point")
-    public ResponseEntity<Void> increasePoint(@RequestParam("money") int money,
+    public ResponseEntity<Integer> increasePoint(@RequestParam("money") int money,
                                               Authentication authentication) {
         log.debug("포인트 적립 : 회원 아이디" + authentication.getName());
         log.debug("포인트 적립 : 회원 ROLE" + authentication.getAuthorities());
         // 원래 가격이랑 ROLE에 따라서 포인트 적립
-        memberService.increasePoint(money, authentication.getName());
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        int point = memberService.increasePoint(money, authentication.getName());
+        return new ResponseEntity<>(point, HttpStatus.ACCEPTED);
     }
 
     // 포인트 사용
