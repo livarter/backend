@@ -72,6 +72,10 @@
              , hd.product_price AS productPrice
              , p.name AS productName
              , p.product_image AS productImage
+             , p.description AS productDesc
+             , (SELECT name
+                FROM brand b
+                where p.brand_id = b.key) AS productBrand
         FROM   purchase_history ph
         JOIN history_detail hd
         ON     ph.id = hd.purchase_history_id
