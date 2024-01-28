@@ -2,7 +2,9 @@ package com.livarter.app.mapper;
 
 import com.livarter.app.domain.HistoryDetail;
 import com.livarter.app.domain.Reply;
+import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
+import com.livarter.app.dto.PurchaseHistoryResDto;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
@@ -17,4 +19,6 @@ public interface ReplyMapper {
     int saveReply(Reply reply);
 
     List<Reply> findAllByMemberId(int memberId);
+
+    List<GetMyReplyDto> findMyReview(int memberId);
 }

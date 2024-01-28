@@ -36,5 +36,6 @@ public class PurchaseHistoryResDto {
     private int productPrice;
     private String productName;
     private String productImage;
-
+    private String productDesc;
+    private String productBrand;
 }

@@ -51,4 +51,26 @@
           AND member.id = #{memberId}
     </select>
 
+    <select id="findMyReview" resultType="com.livarter.app.dto.GetMyReplyDto">
+        SELECT R.id AS replyId
+             , R.product_id AS productId
+             , (SELECT nickname
+                FROM member M
+                WHERE M.id = R.member_id) AS nickname
+             , R.member_id AS memberId
+             , R.reply_comment AS replyComment
+             , R.created_at AS createdAt
+             , R.updated_at AS updatedAt
+             , R.isdeleted AS isDeleted
+             , R.reply_img AS replyImg
+             , P.product_image AS productImage
+             , (SELECT name FROM brand B where B.key = P.brand_id) AS productBrand
+             , P.name AS productName
+        FROM reply R
+        JOIN product P
+        ON R.product_id = P.id
+        WHERE R.member_id = #{memberId}
+        ORDER BY R.created_at DESC
+    </select>
+
 </mapper>
