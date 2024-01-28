@@ -74,6 +74,15 @@ public class MemberController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
+    // 포인트 사용
+    @DeleteMapping("/point")
+    public ResponseEntity<Void> decreasePoint(@RequestParam("point") int point,
+                                              Authentication authentication) {
+        log.debug("포인트 차감 : " + authentication.getName());
+        memberService.decreasePoint(point, authentication.getName());
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
     // 나의 방 카탈로그 조회
     @GetMapping("/catalogs")
     public ResponseEntity<CatalogListResDto> getCatalogs() {
