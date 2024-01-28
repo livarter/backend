@@ -1,9 +1,12 @@
 package com.livarter.app.mapper;
 
+import com.livarter.app.domain.Catalog;
 import com.livarter.app.domain.Member;
 import com.livarter.app.dto.MemberGradeDto;
 import com.livarter.app.dto.MemberUpdateReqDto;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author : 황수영
@@ -23,4 +26,6 @@ public interface MemberMapper {
     void increasePoint(@Param("point") int point, @Param("memberId") int memberId);
     void decreasePoint(@Param("point") int point, @Param("memberId") int memberId);
     int countPurchaseHistoryByMemberId(@Param("memberId") int memberId);
+
+    List<Catalog> getCatalogs();
 }

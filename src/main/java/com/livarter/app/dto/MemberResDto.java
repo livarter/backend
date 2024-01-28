@@ -21,6 +21,7 @@ public class MemberResDto {
     private String nickname;
     private Role role;
     private String image;
+    private String phone;
     private Grade grade;
 
     private String name;
@@ -40,6 +41,7 @@ public class MemberResDto {
         memberResDto.role = member.getRole();
         memberResDto.image = member.getImage();
         memberResDto.grade = member.getGrade();
+        memberResDto.phone = member.getPhone();
 
         memberResDto.name = member.getName();
         memberResDto.address = member.getAddress();

@@ -1,5 +1,7 @@
 package com.livarter.app.controller;
 
+import com.livarter.app.domain.Catalog;
+import com.livarter.app.dto.CatalogListResDto;
 import com.livarter.app.dto.MemberGradeDto;
 import com.livarter.app.dto.MemberResDto;
 import com.livarter.app.dto.MemberUpdateReqDto;
@@ -11,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author : 황수영
@@ -39,7 +43,7 @@ public class MemberController {
             @RequestBody MemberUpdateReqDto memberUpdateReqDto,
             Authentication authentication) {
         log.debug("회원 정보 수정 : " + authentication.getName());
-        MemberResDto memberResDto = memberService.updateMember(memberUpdateReqDto);
+        MemberResDto memberResDto = memberService.updateMember(authentication.getName(), memberUpdateReqDto);
         return new ResponseEntity<>(memberResDto, HttpStatus.ACCEPTED);
     }
 
@@ -77,5 +81,14 @@ public class MemberController {
         log.debug("포인트 차감 : " + authentication.getName());
         memberService.decreasePoint(point, authentication.getName());
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    // 나의 방 카탈로그 조회
+    @GetMapping("/catalogs")
+    public ResponseEntity<CatalogListResDto> getCatalogs() {
+        log.debug("getCatalogs ");
+        List<Catalog> catalogs =  memberService.getCatalogs();
+        CatalogListResDto catalogListResDto = new CatalogListResDto(catalogs);
+        return new ResponseEntity<>(catalogListResDto, HttpStatus.ACCEPTED);
     }
 }

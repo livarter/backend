@@ -1,14 +1,14 @@
 package com.livarter.app.service;
 
+import com.livarter.app.domain.Catalog;
 import com.livarter.app.domain.Member;
 import com.livarter.app.domain.enumType.Grade;
 import com.livarter.app.domain.enumType.Header;
 import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
-import com.livarter.app.dto.MemberGradeDto;
-import com.livarter.app.dto.MemberResDto;
-import com.livarter.app.dto.MemberUpdateReqDto;
+import com.livarter.app.dto.*;
 import com.livarter.app.mapper.BadgeMapper;
+import com.livarter.app.mapper.CouponMapper;
 import com.livarter.app.mapper.MemberMapper;
 import com.livarter.app.security.AuthTokenGenerator;
 import com.livarter.app.security.KakaoOauthClient;
@@ -18,7 +18,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @author : 황수영
@@ -92,9 +93,11 @@ public class MemberService {
         return loginResDto;
     }
 
-    public MemberResDto updateMember(MemberUpdateReqDto memberUpdateReqDto) {
+    public MemberResDto updateMember(String id, MemberUpdateReqDto memberUpdateReqDto) {
+        int memberId = Integer.parseInt(id);
+        memberUpdateReqDto.setId(memberId);
         memberMapper.updateMember(memberUpdateReqDto);
-        Member member = memberMapper.findById(memberUpdateReqDto.getId());
+        Member member = memberMapper.findById(memberId);
         return MemberResDto.of(member);
     }
 
@@ -124,5 +127,11 @@ public class MemberService {
         // 그냥 해당 값을 차감
         log.debug("decreasePoint point : " + point);
         memberMapper.decreasePoint(point, Integer.parseInt(id));
+    }
+
+    public  List<Catalog> getCatalogs() {
+        List<Catalog> catalogs = memberMapper.getCatalogs();
+        log.debug("getCatalogs : " + catalogs);
+        return  catalogs;
     }
 }

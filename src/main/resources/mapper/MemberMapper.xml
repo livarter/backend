@@ -20,6 +20,7 @@
 
     <select id="findById" resultType="com.livarter.app.domain.Member" >
         SELECT   id AS id
+               , phone AS phone
                , email AS email
                , nickname AS nickname
                , role AS role
@@ -40,6 +41,7 @@
 
     <select id="findByEmail" resultType="com.livarter.app.domain.Member" >
         SELECT id AS id
+             , phone AS phone
              , email AS email
              , nickname AS nickname
              , role AS role
@@ -67,14 +69,13 @@
     <update id="updateMember" parameterType="com.livarter.app.dto.MemberUpdateReqDto">
         UPDATE MEMBER
         <set>
-            <if test="email != null">email=#{email}</if>
-            <if test="nickname != null">, nickname=#{nickname}</if>
+            <if test="nickname != null">nickname=#{nickname}</if>
+            <if test="phone != null">, phone=#{phone}</if>
             <if test="image != null">, image=#{image}</if>
             <if test="name != null">, name=#{name}</if>
             <if test="address != null">, address=#{address}</if>
             <if test="zipCode != null">, zip_code=#{zipCode}</if>
-            <if test="birthDate != null">, birth_date=TO_DATE(#{birthDate}, 'YYYY-MM-DD')
-        </if>
+            <if test="birthDate != null">, birth_date=TO_DATE(#{birthDate}, 'YY/MM/DD')</if>
         </set>
         WHERE id = #{id}
     </update>
@@ -109,4 +110,14 @@
         WHERE member.id = history_detail.member_id
           AND member.id = #{memberId}
     </select>
+
+    <select id="getCatalogs">
+        SELECT id AS id
+             , left_chair AS leftChair
+             , right_chair AS rightChair
+             , sofa AS sofa
+             , hashtag AS hashtag
+        FROM catalog
+    </select>
+
 </mapper>
