@@ -1,6 +1,8 @@
 package com.livarter.app.controller;
 
+import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
+import com.livarter.app.dto.PurchaseHistoryResDto;
 import com.livarter.app.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -41,5 +43,13 @@ public class ReplyController {
         int result  = replyService.saveReply(Long.parseLong(authentication.getName()), productId, replyComment, replyImg);
         log.debug("리뷰 등록 : " + Long.parseLong(authentication.getName()));
         return new ResponseEntity<>("success", HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<GetMyReplyDto>> findMyReview(Authentication authentication) {
+        log.debug("나의 리뷰 조회 : " + authentication.getName());
+
+        List<GetMyReplyDto> list = replyService.findMyReview(Integer.parseInt(authentication.getName()));
+        return new ResponseEntity<> (list, HttpStatus.ACCEPTED);
     }
 }

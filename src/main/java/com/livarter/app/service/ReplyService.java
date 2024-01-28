@@ -1,7 +1,10 @@
 package com.livarter.app.service;
 
 import com.livarter.app.domain.Reply;
+import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
+import com.livarter.app.dto.PurchaseHistoryResDto;
+
 import java.util.List;
 
 /**
@@ -12,5 +15,7 @@ import java.util.List;
 public interface ReplyService {
     List<GetReplyDto> findAllByProductId(String productId);
     int saveReply(Long memberId, Long productId, String replyComment, String replyImg);
+
+    List<GetMyReplyDto> findMyReview(int memberId);
 }
 
