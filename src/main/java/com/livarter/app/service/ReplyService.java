@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface ReplyService {
     List<GetReplyDto> findAllByProductId(String productId);
-    int saveReply(Long memberId, Long productId, String replyComment);
+    int saveReply(Long memberId, Long productId, String replyComment, String replyImg);
 }
 

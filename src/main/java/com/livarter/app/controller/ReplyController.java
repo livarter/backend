@@ -36,10 +36,10 @@ public class ReplyController {
     public ResponseEntity<String> saveReply(
             Authentication authentication,
             @RequestParam Long productId,
-            @RequestParam String replyComment)
-    {
-        int result  = replyService.saveReply(Long.parseLong(authentication.getName()), productId, replyComment);
+            @RequestParam String replyComment,
+            @RequestParam(value = "replyImg", required = false) String replyImg) {
+        int result  = replyService.saveReply(Long.parseLong(authentication.getName()), productId, replyComment, replyImg);
         log.debug("리뷰 등록 : " + Long.parseLong(authentication.getName()));
-        return new ResponseEntity<> ("success", HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("success", HttpStatus.ACCEPTED);
     }
 }
