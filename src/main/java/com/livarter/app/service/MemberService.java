@@ -1,5 +1,6 @@
 package com.livarter.app.service;
 
+import com.livarter.app.domain.Catalog;
 import com.livarter.app.domain.Member;
 import com.livarter.app.domain.enumType.Grade;
 import com.livarter.app.domain.enumType.Header;
@@ -35,7 +36,6 @@ public class MemberService {
 
     private final MemberMapper memberMapper;
     private final BadgeMapper badgeMapper;
-    private final CouponMapper couponMapper;
     private final KakaoOauthClient oAuthClient;
     private final AuthTokenGenerator authTokenGenerator;
 
@@ -127,5 +127,11 @@ public class MemberService {
         // 그냥 해당 값을 차감
         log.debug("decreasePoint point : " + point);
         memberMapper.decreasePoint(point, Integer.parseInt(id));
+    }
+
+    public  List<Catalog> getCatalogs() {
+        List<Catalog> catalogs = memberMapper.getCatalogs();
+        log.debug("getCatalogs : " + catalogs);
+        return  catalogs;
     }
 }

@@ -1,5 +1,7 @@
 package com.livarter.app.controller;
 
+import com.livarter.app.domain.Catalog;
+import com.livarter.app.dto.CatalogListResDto;
 import com.livarter.app.dto.MemberGradeDto;
 import com.livarter.app.dto.MemberResDto;
 import com.livarter.app.dto.MemberUpdateReqDto;
@@ -11,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author : 황수영
@@ -70,12 +74,12 @@ public class MemberController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    // 포인트 사용
-    @DeleteMapping("/point")
-    public ResponseEntity<Void> decreasePoint(@RequestParam("point") int point,
-                                              Authentication authentication) {
-        log.debug("포인트 차감 : " + authentication.getName());
-        memberService.decreasePoint(point, authentication.getName());
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    // 나의 방 카탈로그 조회
+    @GetMapping("/catalogs")
+    public ResponseEntity<CatalogListResDto> getCatalogs() {
+        log.debug("getCatalogs ");
+        List<Catalog> catalogs =  memberService.getCatalogs();
+        CatalogListResDto catalogListResDto = new CatalogListResDto(catalogs);
+        return new ResponseEntity<>(catalogListResDto, HttpStatus.ACCEPTED);
     }
 }

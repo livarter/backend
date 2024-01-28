@@ -110,4 +110,14 @@
         WHERE member.id = history_detail.member_id
           AND member.id = #{memberId}
     </select>
+
+    <select id="getCatalogs">
+        SELECT id AS id
+             , left_chair AS leftChair
+             , right_chair AS rightChair
+             , sofa AS sofa
+             , hashtag AS hashtag
+        FROM catalog
+    </select>
+
 </mapper>
