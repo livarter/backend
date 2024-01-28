@@ -5,6 +5,7 @@
 
     <select id="getBadgesByMember" resultType="com.livarter.app.domain.BadgeMember" >
         SELECT badge_member.is_earned AS isEarned
+             , badge.id AS id
              , badge.name AS name
              , badge.image AS image
              , badge.description AS description
