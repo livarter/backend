@@ -18,6 +18,7 @@ public class GetReplyDto {
     private Long productId;
     private String nickname;
     private Long memberId;
+    private String profileImg;
     private String replyComment;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
