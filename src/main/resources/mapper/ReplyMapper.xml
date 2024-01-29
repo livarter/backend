@@ -10,6 +10,9 @@
             (SELECT nickname
              FROM member M
              WHERE M.id = R.member_id) AS nickname,
+            (SELECT image
+             FROM member M
+             WHERE M.id = R.member_id) AS profileImg,
             reply_comment AS replyComment,
             created_at AS createdAt,
             updated_at AS updatedAt,
@@ -57,6 +60,9 @@
              , (SELECT nickname
                 FROM member M
                 WHERE M.id = R.member_id) AS nickname
+             , (SELECT image
+                FROM member M
+                WHERE M.id = R.member_id) AS profileImg
              , R.member_id AS memberId
              , R.reply_comment AS replyComment
              , R.created_at AS createdAt
