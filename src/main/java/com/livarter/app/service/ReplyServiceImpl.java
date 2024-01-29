@@ -2,7 +2,9 @@ package com.livarter.app.service;
 
 import com.livarter.app.domain.PurchaseHistory;
 import com.livarter.app.domain.Reply;
+import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
+import com.livarter.app.dto.PurchaseHistoryResDto;
 import com.livarter.app.mapper.ReplyMapper;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,10 @@ public class ReplyServiceImpl implements ReplyService {
                 .replyImg(replyImg) // 이미지 파일 이름 추가
                 .build();
         return replyMapper.saveReply(reply);
+    }
+
+    @Override
+    public List<GetMyReplyDto> findMyReview(int memberId) {
+        return replyMapper.findMyReview(memberId);
     }
 }

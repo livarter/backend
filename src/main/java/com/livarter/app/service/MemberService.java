@@ -113,7 +113,7 @@ public class MemberService {
     }
 
     // 포인트 적립
-    public void increasePoint(int money, String id) {
+    public int increasePoint(int money, String id) {
         // 멤버 grade에 따라서 포인트 다르게 적립됨
 
         // grade 찾기
@@ -124,6 +124,7 @@ public class MemberService {
         int point = grade.getPointOfMoneyByGrade(money);
         log.debug("increasePoint money : " + money + " => point : " + point);
         memberMapper.increasePoint(point, Integer.parseInt(id));
+        return point;
     }
 
     // 포인트 사용
