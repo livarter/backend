@@ -105,6 +105,10 @@ public class MemberService {
     public MemberGradeDto getMemberGradeInfo(String id) {
         MemberGradeDto memberGradeDto = memberMapper.getMemberGradeInfo(Integer.parseInt(id));
         log.debug("멤버십 조회하기 서바스단 memberGradeDto : " + memberGradeDto);
+        if (memberGradeDto != null) {
+            log.debug("멤버십 조회하기 서바스단 memberGradeDto : " + memberGradeDto.getImage());
+
+        }
         return memberGradeDto;
     }
 
