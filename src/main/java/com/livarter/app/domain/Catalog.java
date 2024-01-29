@@ -18,4 +18,6 @@ public class Catalog {
     private String rightChair;
     private String sofa;
     private String hashtag;
+    private String background;
+    private String deco;
 }
