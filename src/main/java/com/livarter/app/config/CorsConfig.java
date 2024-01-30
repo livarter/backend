@@ -10,6 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author : 황수영
  * @fileName : CorsConfig
  * @since : 2024-01-21
+ * 내용 : CORS 설정
  */
 @Configuration
 public class CorsConfig {

@@ -8,6 +8,7 @@ import java.util.Random;
  * @author : 황수영
  * @fileName : Nickname
  * @since : 2024-01-20
+ * 내용 : 가입 시 발급되는 랜덤 닉네임
  */
 @Getter
 public enum Nickname {

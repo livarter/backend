@@ -19,6 +19,7 @@ import java.util.Date;
  * @author : 황수영
  * @fileName : AuthTokenProvider
  * @since : 2024-01-19
+ * 내용 : JWT 토큰 생성용
  */
 @Log4j
 @Component

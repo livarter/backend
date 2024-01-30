@@ -19,6 +19,7 @@ import java.util.Collection;
  * @author : 황수영
  * @fileName : CustomDetailsService
  * @since : 2024-01-19
+ * 내용 : 시큐리티의 UserDetailsService 구현 - 사용자 DB에 존재하는 지 검증용
  */
 @Log4j
 @Service

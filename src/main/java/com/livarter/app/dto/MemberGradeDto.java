@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
  * @author : 황수영
  * @fileName : MemberGradeDto
  * @since : 2024-01-25
+ * 내용 : 회원 멤버십 정보 DTO
  */
 
 @Getter

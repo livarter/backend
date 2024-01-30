@@ -12,6 +12,7 @@ import java.time.LocalDate;
  * @author : 황수영
  * @fileName : MemberResDto
  * @since : 2024-01-20
+ * 내용 : 회원 정보 DTO
  */
 @Getter
 @NoArgsConstructor

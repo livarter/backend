@@ -9,6 +9,13 @@ import com.livarter.app.security.dto.LoginResDto;
 
 import java.util.List;
 
+/**
+ * @author : 황수영
+ * @fileName : MemberService
+ * @since : 2024-01-19
+ * 내용 : 회원/멤버십 관련 기능
+ */
+
 public interface MemberService {
 
     MemberResDto getMember(String id);
@@ -28,5 +35,5 @@ public interface MemberService {
     // 포인트 사용
     void decreasePoint(int point, String id);
 
-    List<Catalog> getCatalogs();
+    List<Catalog> getCatalogs(String memberId);
 }

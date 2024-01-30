@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author : 황수영
  * @fileName : ServletContextConfig
  * @since : 2024-01-19
+ * 내용 : servlet-context.xml
  */
 @Configuration
 @EnableWebMvc

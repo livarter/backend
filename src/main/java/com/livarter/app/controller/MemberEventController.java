@@ -1,5 +1,6 @@
-package com.livarter.app.membership;
+package com.livarter.app.controller;
 
+import com.livarter.app.membership.MemberEventHandler;
 import com.livarter.app.membership.dto.PopUpDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @author : 황수영
  * @fileName : EventController
  * @since : 2024-01-26
+ * 내용 : 뱃지 발급용 이벤트 컨트롤러
  */
 
 @Log4j

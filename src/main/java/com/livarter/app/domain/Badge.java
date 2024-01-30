@@ -6,6 +6,7 @@ import lombok.*;
  * @author : 황수영
  * @fileName : Badge
  * @since : 2024-01-24
+ * 내용 : 뱃지 도메인
  */
 @Getter
 @Builder

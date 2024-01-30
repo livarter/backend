@@ -18,7 +18,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : MembershipEventHandler
  * @since : 2024-01-26
- * 쿠폰 및 뱃지 발급 가능한 조건 판별하는 용도
+ * 내용 : 쿠폰 및 뱃지 발급 가능한 조건 판별하는 용도
  */
 
 @Log4j

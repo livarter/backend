@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  * @author : 황수영
  * @fileName : AuthTokenFilterConfigurer
  * @since : 2024-01-19
+ * 내용 : AuthTokenFilter 필터 등록용
  */
 @Log4j
 @Component

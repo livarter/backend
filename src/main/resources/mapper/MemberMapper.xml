@@ -3,6 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.livarter.app.mapper.MemberMapper">
 
+    <!--    @author : 황수영  -->
+    <!--    @fileName : MemberMapper  -->
+    <!--    @since : 2024-01-24  -->
+    <!--    내용 : 회원 관련 기능  -->
+
     <insert id="saveMember" parameterType="com.livarter.app.domain.Member" >
         INSERT INTO member ( id
                            , email
@@ -112,14 +117,22 @@
     </select>
 
     <select id="getCatalogs">
-        SELECT id AS id
-             , left_chair AS leftChair
-             , right_chair AS rightChair
-             , sofa AS sofa
-             , hashtag AS hashtag
-             , background AS background
-             , deco AS deco
-        FROM catalog
+        SELECT hashtag.id AS id
+             , hashtag.left_chair AS leftChair
+             , hashtag.right_chair AS rightChair
+             , hashtag.sofa AS sofa
+             , hashtag.hashtag AS hashtag
+             , hashtag.background AS background
+             , hashtag.deco AS deco
+        FROM hash_product, hashtag
+        WHERE hash_product.hashtag_id = hashtag.id
+        AND hash_product.product_id IN (
+            SELECT
+            history_detail.product_id AS product_id
+            FROM member, history_detail
+            WHERE member.id = history_detail.member_id
+            AND member.id = #{memberId}
+        )
     </select>
 
 </mapper>

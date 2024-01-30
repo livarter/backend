@@ -15,6 +15,7 @@ import com.livarter.app.security.dto.LoginReqDto;
 import com.livarter.app.security.dto.LoginResDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : MemberService
  * @since : 2024-01-19
+ * 내용 : 회원/멤버십 관련 기능
  */
 @Log4j
 @Service
@@ -133,8 +135,8 @@ public class MemberServiceImpl implements MemberService {
         memberMapper.decreasePoint(point, Integer.parseInt(id));
     }
 
-    public  List<Catalog> getCatalogs() {
-        List<Catalog> catalogs = memberMapper.getCatalogs();
+    public  List<Catalog> getCatalogs(String memberId) {
+        List<Catalog> catalogs = memberMapper.getCatalogs(Integer.parseInt(memberId));
         log.debug("getCatalogs : " + catalogs);
         return  catalogs;
     }

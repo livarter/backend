@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author : 황수영
  * @fileName : BadgeController
  * @since : 2024-01-24
+ * 내용 : 뱃지 기능용 컨트롤러
  */
 
 @Log4j

@@ -9,6 +9,7 @@ import javax.servlet.Filter;
  * @author : 황수영
  * @fileName : WebConfig
  * @since : 2024-01-19
+ * 내용 : web-context.xml
  */
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 

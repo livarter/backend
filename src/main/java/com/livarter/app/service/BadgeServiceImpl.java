@@ -1,6 +1,6 @@
 package com.livarter.app.service;
 
-import com.livarter.app.domain.BadgeMember;
+import com.livarter.app.dto.BadgeMember;
 import com.livarter.app.dto.BadgeMemberListDto;
 import com.livarter.app.mapper.BadgeMapper;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : BadgeServiceImpl
  * @since : 2024-01-24
+ * 내용 : 뱃지 관련 기능
  */
 
 @Log4j

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @author : 황수영
  * @fileName : AuthController
  * @since : 2024-01-19
+ * 내용 : 인증/인가 처리용 컨트롤러
  */
 @Log4j
 @RequestMapping("/api/v1/auth")

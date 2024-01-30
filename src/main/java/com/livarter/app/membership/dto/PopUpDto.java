@@ -10,7 +10,7 @@ import org.springframework.security.core.parameters.P;
  * @author : 황수영
  * @fileName : PopUpDto
  * @since : 2024-01-27
- * 쿠폰 혹은 뱃지 팝업 띄워주는 용도
+ * 내용 : 쿠폰 혹은 뱃지 팝업 띄워주는 용도
  */
 
 @Getter

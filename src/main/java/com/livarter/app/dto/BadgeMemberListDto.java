@@ -1,6 +1,5 @@
 package com.livarter.app.dto;
 
-import com.livarter.app.domain.BadgeMember;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

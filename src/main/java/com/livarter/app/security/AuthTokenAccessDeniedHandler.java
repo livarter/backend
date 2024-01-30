@@ -13,6 +13,7 @@ import java.io.IOException;
  * @author : 황수영
  * @fileName : AuthTokenAccessDeniedHandler
  * @since : 2024-01-19
+ * 내용 : 인가되지 않은 사용자의 요청 처리 핸들러
  */
 @Log4j
 @Component

@@ -6,6 +6,7 @@ import lombok.*;
  * @author : 황수영
  * @fileName : TokenDto
  * @since : 2024-01-19
+ * 내용 : 프론트에서 로그인 후 Res DTO
  */
 @Getter
 @Setter
