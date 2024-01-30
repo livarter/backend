@@ -6,14 +6,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
-import java.time.LocalDateTime;
-
-
 /**
  * @author : 변형준
  * @fileName : PurchaseResDto
  * @since : 1/23/24
+ * @작업내용 : 주문내역 조회 응답 dto
  */
 @Getter
 @Builder

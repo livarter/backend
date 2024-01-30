@@ -1,17 +1,15 @@
 package com.livarter.app.mapper;
 
-import com.livarter.app.domain.HistoryDetail;
 import com.livarter.app.domain.Reply;
 import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
-import com.livarter.app.dto.PurchaseHistoryResDto;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 /**
  * @author : 최현서
- * @fileName : ReplyMapper$
- * @since : 2024-01-25$
+ * @fileName : ReplyMapper
+ * @since : 2024-01-25
  */
 @Mapper
 public interface ReplyMapper {

@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
  * @author : 변형준
  * @fileName : PurchaseHistory
  * @since : 2024-01-23
+ * @작업내용 : 주문내역 도메인
  */
 @Getter
 @Builder

@@ -7,6 +7,7 @@
  @author : 변형준
  @fileName : PurchaseHistoryMapper.xml
  @since : 1/23/24
+ @작업내용 : 구매내역 Mapper
   -->
 
     <insert id="savePurchaseHistory" parameterType="com.livarter.app.domain.PurchaseHistory" >

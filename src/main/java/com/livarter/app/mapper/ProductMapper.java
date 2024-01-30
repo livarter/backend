@@ -1,6 +1,5 @@
 package com.livarter.app.mapper;
 
-import com.livarter.app.domain.Product;
 import com.livarter.app.dto.GetRequestDTO;
 import com.livarter.app.dto.GetResponseDTO;
 import org.apache.ibatis.annotations.Mapper;

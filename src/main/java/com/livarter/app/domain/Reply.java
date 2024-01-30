@@ -1,7 +1,6 @@
 package com.livarter.app.domain;
 
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 /**

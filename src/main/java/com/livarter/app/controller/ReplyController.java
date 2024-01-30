@@ -2,7 +2,6 @@ package com.livarter.app.controller;
 
 import com.livarter.app.dto.GetMyReplyDto;
 import com.livarter.app.dto.GetReplyDto;
-import com.livarter.app.dto.PurchaseHistoryResDto;
 import com.livarter.app.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
