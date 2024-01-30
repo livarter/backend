@@ -3,6 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.livarter.app.mapper.ProductMapper">
 
+    <!--
+ @author : 오수영
+ @fileName : ProductMapper.xml
+ @since : 1/23/24
+ @Function : 상품 데이터를 조회하기 위한 MyBatis SQL 매핑 정의
+  -->
+
     <resultMap id="productResultMap" type="com.livarter.app.dto.GetResponseDTO">
         <result property="productId" column="product_id"/>
         <result property="productName" column="product_name"/>

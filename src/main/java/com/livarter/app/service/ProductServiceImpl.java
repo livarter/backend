@@ -13,6 +13,7 @@ import java.util.List;
  * @author : 오수영
  * @fileName : ProductServiceImpl$
  * @since : 2024-01-22$
+ * @Function : ProductService 인터페이스를 구현하여 상품 관련 비즈니스 로직을 실제로 처리하는 클래스
  */
 
 @Log4j

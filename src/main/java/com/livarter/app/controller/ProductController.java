@@ -19,6 +19,7 @@ import java.util.List;
  * @author : 오수영
  * @fileName : ProductController$
  * @since : 2024-01-22$
+ * @Function : 상품 관련 요청을 처리하는 컨트롤러
  */
 
 @Log4j

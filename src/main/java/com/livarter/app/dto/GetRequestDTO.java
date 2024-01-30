@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
  * @author : 오수영
  * @fileName : SearchRequestDTO$
  * @since : $
+ * @Function : 상품 검색 요청을 위한 데이터 전송 객체(DTO)
  */
 @Data
 @Builder
