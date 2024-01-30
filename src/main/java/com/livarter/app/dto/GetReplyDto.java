@@ -2,7 +2,6 @@ package com.livarter.app.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 
 /**

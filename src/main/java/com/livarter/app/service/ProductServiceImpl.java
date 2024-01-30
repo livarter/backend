@@ -3,12 +3,10 @@ package com.livarter.app.service;
 import com.livarter.app.dto.GetRequestDTO;
 import com.livarter.app.dto.GetResponseDTO;
 import com.livarter.app.mapper.ProductMapper;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**

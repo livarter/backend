@@ -2,7 +2,6 @@ package com.livarter.app.domain;
 
 import lombok.*;
 
-import java.time.LocalDate;
 
 /**
  * @author : 변형준
