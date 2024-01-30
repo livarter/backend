@@ -5,7 +5,6 @@ import java.util.List;
 import com.livarter.app.dto.GetRequestDTO;
 import com.livarter.app.dto.GetResponseDTO;
 
-import javax.transaction.Transactional;
 
 /**
  * @author : 오수영

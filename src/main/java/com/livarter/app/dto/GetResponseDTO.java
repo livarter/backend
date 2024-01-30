@@ -1,6 +1,5 @@
 package com.livarter.app.dto;
 
-import com.livarter.app.domain.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

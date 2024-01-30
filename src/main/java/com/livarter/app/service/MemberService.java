@@ -8,7 +8,6 @@ import com.livarter.app.domain.enumType.Nickname;
 import com.livarter.app.domain.enumType.Role;
 import com.livarter.app.dto.*;
 import com.livarter.app.mapper.BadgeMapper;
-import com.livarter.app.mapper.CouponMapper;
 import com.livarter.app.mapper.MemberMapper;
 import com.livarter.app.security.AuthTokenGenerator;
 import com.livarter.app.security.KakaoOauthClient;
