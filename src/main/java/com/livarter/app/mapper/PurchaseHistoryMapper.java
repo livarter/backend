@@ -10,6 +10,7 @@ import java.util.List;
  * @author : 변형준
  * @fileName : PurchaseHistoryMapper
  * @since : 2024-01-23
+ * @작업내용 : 주문내역 저장 및 조회 mapper
  */
 public interface PurchaseHistoryMapper {
     int savePurchaseHistory(PurchaseHistory purchaseHistory);
