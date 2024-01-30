@@ -17,6 +17,7 @@ import java.util.List;
  * @author : 변형준
  * @fileName : PurchaseController
  * @since : 1/23/24
+ * @작업내용 : 주문내역 저장 및 조회 api
  */
 
 @Log4j

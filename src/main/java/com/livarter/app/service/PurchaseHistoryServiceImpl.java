@@ -18,6 +18,7 @@ import java.util.List;
  * @author : 변형준
  * @fileName :PurchaseHistoryServiceImpl
  * @since : 2024-01-23
+ * @작업내용 : 주문내역 저장 및 조회 serviceImpl
  */
 @Log4j
 @Service
