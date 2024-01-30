@@ -20,6 +20,7 @@ import javax.sql.DataSource;
  * @author : 황수영
  * @fileName : RootContextConfig
  * @since : 2024-01-19
+ * 내용 : root-context.xml
  */
 @Configuration
 @MapperScan(value = "com.livarter.app.mapper")

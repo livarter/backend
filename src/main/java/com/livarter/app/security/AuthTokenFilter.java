@@ -18,6 +18,7 @@ import java.io.IOException;
  * @author : 황수영
  * @fileName : AuthTokenFilter
  * @since : 2024-01-19
+ * 내용 : 토큰 검증 후 시큐리티 컨텍스트에 저장하는 필터
  */
 @Slf4j
 @Component

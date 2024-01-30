@@ -10,6 +10,7 @@ import java.time.LocalDate;
  * @author : 황수영
  * @fileName : Member
  * @since : 2024-01-19
+ * 내용 : 회원 도메인
  */
 @Getter
 @Builder

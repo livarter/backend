@@ -1,7 +1,7 @@
 package com.livarter.app.mapper;
 
 import com.livarter.app.domain.Badge;
-import com.livarter.app.domain.BadgeMember;
+import com.livarter.app.dto.BadgeMember;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,6 +10,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : BadgeMapper
  * @since : 2024-01-24
+ * 내용 : 뱃지 관련 Mapper
  */
 public interface BadgeMapper {
 

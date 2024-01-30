@@ -8,6 +8,7 @@ import lombok.Getter;
  * @author : 황수영
  * @fileName : KakaoResDto
  * @since : 2024-01-20
+ * 내용 : 카카오 OAuth 요청 후 Res DTO
  */
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
  * @author : 황수영
  * @fileName : KakaoOauthClient
  * @since : 2024-01-20
+ * 내용 : 카카오에 사용자 정보 요청용
  */
 @Log4j
 @Service

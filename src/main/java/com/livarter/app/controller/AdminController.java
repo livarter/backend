@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author : 황수영
  * @fileName : AdminController
  * @since : 2024-01-19
+ * 내용 : Health Check용 컨트롤러
  */
 
 @RequestMapping("/")

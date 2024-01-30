@@ -12,6 +12,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : EventService
  * @since : 2024-01-26
+ * 내용 : 회원 관련 Mapper
  */
 public interface MemberMapper {
     // 회원 가입 및 인증 관련
@@ -27,5 +28,5 @@ public interface MemberMapper {
     void decreasePoint(@Param("point") int point, @Param("memberId") int memberId);
     int countPurchaseHistoryByMemberId(@Param("memberId") int memberId);
 
-    List<Catalog> getCatalogs();
+    List<Catalog> getCatalogs(@Param("memberId") int memberId);
 }

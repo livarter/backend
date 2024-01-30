@@ -7,6 +7,7 @@ import lombok.Getter;
  * @author : 황수영
  * @fileName : BadgeType
  * @since : 2024-01-27
+ * 내용 : 뱃지 타입용
  */
 @Getter
 @AllArgsConstructor

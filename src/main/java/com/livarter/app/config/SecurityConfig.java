@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author : 황수영
  * @fileName : SecurityConfig
  * @since : 2024-01-19
+ * 내용 : Security 설정 추가
  */
 @Log4j
 @Configuration
@@ -58,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/api/v1/products/**").permitAll()
                     .antMatchers("/api/v1/purchase/**").permitAll()
                     .antMatchers("/api/v1/reply/**").permitAll()
-                //.antMatchers("/api/v1/member/**").hasRole("MEMBER") // 이후에 멤버만 허용
                     .anyRequest().permitAll()
                 .and()
                     .apply(new AuthTokenFilterConfigurer(authTokenGenerator));

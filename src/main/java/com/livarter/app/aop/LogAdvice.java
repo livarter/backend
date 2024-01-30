@@ -13,6 +13,7 @@ import java.util.Date;
  * @author : 황수영
  * @fileName : LogAdvice
  * @since : 2024-01-20
+ * 내용 : 예외 발생 시 로그 찍는 용도
  */
 @Log4j
 @Aspect

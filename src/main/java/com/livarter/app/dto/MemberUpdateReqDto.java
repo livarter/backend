@@ -8,6 +8,7 @@ import lombok.Setter;
  * @author : 황수영
  * @fileName : MemberUpdateReqDto
  * @since : 2024-01-22
+ * 내용 : 회원 정보 수정 DTO
  */
 
 @Getter

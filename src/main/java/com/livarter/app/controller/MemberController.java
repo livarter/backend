@@ -20,6 +20,7 @@ import java.util.List;
  * @author : 황수영
  * @fileName : MemberController
  * @since : 2024-01-21
+ * 내용 : 회원 정보 조회/수정용 컨트롤러
  */
 
 @Log4j
@@ -85,9 +86,9 @@ public class MemberController {
 
     // 나의 방 카탈로그 조회
     @GetMapping("/catalogs")
-    public ResponseEntity<CatalogListResDto> getCatalogs() {
+    public ResponseEntity<CatalogListResDto> getCatalogs(Authentication authentication) {
         log.debug("getCatalogs ");
-        List<Catalog> catalogs =  memberService.getCatalogs();
+        List<Catalog> catalogs =  memberService.getCatalogs(authentication.getName());
         CatalogListResDto catalogListResDto = new CatalogListResDto(catalogs);
         return new ResponseEntity<>(catalogListResDto, HttpStatus.ACCEPTED);
     }

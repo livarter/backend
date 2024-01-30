@@ -6,6 +6,7 @@ import lombok.Getter;
  * @author : 황수영
  * @fileName : Role
  * @since : 2024-01-19
+ * 내용 : 회원 타입
  */
 @Getter
 public enum Role {

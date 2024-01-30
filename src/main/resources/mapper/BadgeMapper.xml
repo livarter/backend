@@ -3,7 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.livarter.app.mapper.BadgeMapper">
 
-    <select id="getBadgesByMember" resultType="com.livarter.app.domain.BadgeMember" >
+    <!--    @author : 황수영  -->
+    <!--    @fileName : BadgeMapper  -->
+    <!--    @since : 2024-01-24  -->
+    <!--    내용 : 뱃지 관련 기능  -->
+
+    <select id="getBadgesByMember" resultType="com.livarter.app.dto.BadgeMember" >
         SELECT badge_member.is_earned AS isEarned
              , badge.id AS id
              , badge.name AS name
@@ -15,7 +20,6 @@
         WHERE badge_member.member_id = #{memberId}
         ORDER BY badge.id
     </select>
-
 
     <insert id="createBadges" >
         INSERT INTO badge_member ( id
