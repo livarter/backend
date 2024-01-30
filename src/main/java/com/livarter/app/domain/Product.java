@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * @author : 오수영
  * @fileName : Product$
  * @since : 2024-01-22
+ * @Function : 상품 도메인 모델 정의
  */
 
 @Getter

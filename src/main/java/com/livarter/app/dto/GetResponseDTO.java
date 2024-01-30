@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  * @author : 오수영
  * @fileName : ProductResDto
  * @since : 2024-01-22$
+ * @Function : 상품 조회 요청에 대한 응답으로 전달되는 데이터 전송 객체(DTO)
  */
 @Getter
 @Setter
